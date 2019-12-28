@@ -17,26 +17,22 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
 |email|string|null: false|
 |password|string|null: false|
 |nickname|string|null:false|
 
 ### Association
-- has_many :chat_groups, through: :groups_users
-- has_many :chat_groups
+- has_many :groups_users
 - has_many :chats
 
-## chat_groupsテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|group_name|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :users, through: :groups_users
-- has_many :chat_groups
+- has_many :groups
 - has_many :chats
 
 ## groups_usersテーブル
@@ -46,7 +42,7 @@ Things you may want to cover:
 |group_id|integer|null: false, forreign_key: true|
 
 ### Association
-- belongs_to :chat_group
+- belongs_to :group
 - belongs_to :user
 
 
@@ -59,7 +55,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- belongs_to :chat-group
+- belongs_to :group
 
 
 * Database initialization
