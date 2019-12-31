@@ -1,0 +1,28 @@
+.side-wrapper
+  .side-header
+    .side-header__inside
+      %p 
+        masa
+      %ul.icon
+        %li.icon__new-group-btn
+          = link_to "#" do
+            = icon('fas', 'edit')
+        %li.icon__edit-btn
+          = link_to "#" do
+            = icon('fas', 'cog')
+  .side-bottom
+    .side-bottom__inside
+      %p.group-name
+        name1 
+      %p.group-message
+        hello1
+    .side-bottom__inside
+      %p.group-name
+        name2
+      %p.group-message
+        hello2
+    .side-bottom__inside
+      %p.group-name
+        name3
+      %p.group-message
+        hello3
