@@ -44,17 +44,23 @@
   height:calc(100vh - 100px);
   padding-right:20px;
   padding-left:20px;
+  overflow:scroll;
   &__inside{
     padding-top:20px;
     padding-bottom:40px;
     font-weight:bold;
     color:#ffffff;
+    text-decoration:none;
     .group-name{
      margin-bottom:5px;
      font-size:15px;
+     color:#ffffff;
+     text-decoration:none;
     }
     .group-message{
       font-size:11px;
+      color:#ffffff;
+      text-decoration:none;
     }
   }
 }

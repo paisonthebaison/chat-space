@@ -1,0 +1,21 @@
+.side-wrapper
+  .side-header
+    .side-header__inside
+      %p 
+        masa
+      %ul.icon
+        %li.icon__new-group-btn
+          = link_to new_group_path do
+            = icon('fas', 'edit')
+        %li.icon__edit-btn
+          = link_to edit_user_path(current_user) do
+            = icon('fas', 'cog')
+  .side-bottom
+    - current_user.groups.each do |group|
+      .side-bottom__inside
+        = link_to '#' do
+          %p.group-name
+            name1 
+          %p.group-message
+            hello1
+    
