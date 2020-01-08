@@ -1,32 +1,33 @@
 .main-chat
   .main-chat__top
     .main-chat__top__left
-      %p.main-chat__top__left__group-name group name
-      %p.main-chat__top__left__member-name member name 
+      %p.main-chat__top__left__group-name 
+        = @group.name
+      .main-chat__top__left__member-name 
+        Member:
+      -@group.users.each do |user|
+        #{user.name}
+
+
     .main-chat__top__right
-      = link_to "#", class:"edit-btn" do
+      = link_to edit_group_path(@group), class:"edit-btn" do
         %p.main-chat__top__right__edit Edit
-  
+      
   .main-chat__middle
-    .main-chat__middle__message
-      .main-chat-middle__message__upper-info
-        %p.upper-info__talker name
-        %p.upper-info__date 2019/12/30(Mon) 20:54:11
-      %p.message__text text
-    .main-chat__middle__message
-      .main-chat-middle__message__upper-info
-        %p.upper-info__talker name2
-        %p.upper-info__date 2019/12/30(Mon) 20:54:11
-      %p.message__text text2
+    = render @messages
+   
   .main-chat__bottom
-    #new-message.new-message
-      .input-box
-        .input-box__place-holder
-          %input.input-box__place-holder{placeholder: "type a message", type: "text"}/
-        .input-box__image
-          %label{class: "input-box__image"}
-            = icon('fas', 'image')
-            %input{type: "file"}
-      .new-massage__submit-btn Send
+    = form_for [@group, @message] do |f|
+      #new-message.new-message
+        .input-box
+          .input-box__place-holder
+            = f.text_field :content, class: 'input-box__place-holder', placeholder: 'type a message'
+          .input-box__image
+            = f.label :image, class: 'input-box__image' do
+              = icon('fas', 'image')
+              = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'new-massage__submit-btn'
+
+   
        
             

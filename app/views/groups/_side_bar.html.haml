@@ -13,9 +13,9 @@
   .side-bottom
     - current_user.groups.each do |group|
       .side-bottom__inside
-        = link_to '#' do
+        = link_to group_messages_path(group) do
           %p.group-name
-            name1 
+            = group.name
           %p.group-message
-            hello1
+            = group.show_last_message
     
