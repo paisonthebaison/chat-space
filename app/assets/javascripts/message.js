@@ -41,6 +41,15 @@ $('#new_message').on('submit', function(e){
  })
   .done(function(data){
     var html = buildHTML(data);
+    $('.main-chat__middle').append(html);      
+    $('form')[0].reset();
+    $('.main-chat__middle').animate({ scrollTop: $('.main-chat__middle')[0].scrollHeight});
+    $('.new-massage__submit-btn').prop('disabled', false);
+    
   })
+  .fail(function() {
+    alert("メッセージ送信に失敗しました");
+});
 })
 });
+
