@@ -1,8 +1,8 @@
 .side-wrapper
   .side-header
     .side-header__inside
-      %p 
-        masa
+      %p.user-name
+        = current_user.name
       %ul.icon
         %li.icon__new-group-btn
           = link_to new_group_path do
