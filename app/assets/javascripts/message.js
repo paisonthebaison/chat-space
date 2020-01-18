@@ -54,9 +54,6 @@ $('#new_message').on('submit', function(e){
 })
   var reloadMessages = function() {
   last_message_id = $('.main-chat__middle__message:last').data("message-id");
-  console.log(last_message_id);
-  console.log($('.message:last'));
-  console.log($('.message:last')[0]);
   $.ajax({
     url: "api/messages",
     type: 'get',
